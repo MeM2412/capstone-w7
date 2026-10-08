@@ -36,7 +36,7 @@ def process_clinic_data(file_path, target_month, target_year):
     return zip_totals, exception_log
 
 # --- Execution ---
-# Person 2 will feed their synthetic data into this file
+# Person 2 - synthetic data into this file
 totals, errors = process_clinic_data('synthetic_data.csv', target_month=10, target_year=2026)
 
 print("=== MONTHLY TOTALS BY ZIP CODE ===")
