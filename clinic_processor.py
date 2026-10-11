@@ -1,6 +1,7 @@
 import csv
 from datetime import datetime
 from collections import defaultdict
+import time
 
 def process_clinic_data(file_path, target_month, target_year):
     # Dictionaries to store our results
@@ -36,8 +37,11 @@ def process_clinic_data(file_path, target_month, target_year):
     return zip_totals, exception_log
 
 # --- Execution ---
-# Person 2 - synthetic data into this file
+start_time = time.time()
+
 totals, errors = process_clinic_data('synthetic_data.csv', target_month=10, target_year=2026)
+
+end_time = time.time()
 
 print("=== MONTHLY TOTALS BY ZIP CODE ===")
 for zip_code, counts in totals.items():
@@ -46,3 +50,5 @@ for zip_code, counts in totals.items():
 print("\n=== EXCEPTION LOG ===")
 for error in errors:
     print(error)
+
+print(f"\nExecution time: {end_time - start_time:.4f} seconds")
